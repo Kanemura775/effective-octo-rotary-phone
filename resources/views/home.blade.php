@@ -15,10 +15,11 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card py-5">
-                                    <a href="{{ route('author') }}"></a>
-                                    <div class="card-body">
-                                        <h2 class="text-primary text-center fw-bold display-4">Authors 3</h2>
-                                    </div>
+                                    <a href="{{ route('author.create') }}">
+                                        <div class="card-body">
+                                            <h2 class="text-primary text-center fw-bold display-4">Authors 3</h2>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

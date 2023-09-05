@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/author',[App\Http\Controllers\::class,'author'])
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+//AuthorControllerのindexメソッドを呼び出している
+Route::get('/author', [AuthorController::class, 'create'])->name('author.create');
+Route::post('/author/store', [AuthorController::class, 'store'])->name('author.store');
+Route::get('/author/show', [AuthorController::class, 'show'])->name('author.show');
+Route::get('/author/edit/{id}', [AuthorController::class, 'edit'])->name('author.edit');

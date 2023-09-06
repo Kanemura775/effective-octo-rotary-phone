@@ -27,7 +27,11 @@
                             <div class="col">{{$author->name}}</div>
                             <div class="col text-end">
                                 <a href="{{route('author.edit',$author->id)}}" title="Edit" class="btn btn-outline-warning btn-sm border-0"><i class="fa-solid fa-file-pen"></i></a>
-                                <a href="" title="Delete" class="btn btn-outline-danger btn-sm border-0"><i class="fa-solid fa-trash"></i></a>
+                                <form action="{{route('author.destroy',$author->id)}}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                </form>
                             </div>
                         </div>
                     </li>

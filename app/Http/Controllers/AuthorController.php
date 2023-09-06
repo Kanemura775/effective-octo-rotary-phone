@@ -36,4 +36,20 @@ class AuthorController extends Controller
         $author = $this->author->findOrFail($id);
         return view('authorEdit')->with('author', $author);
     }
+
+    public function update(Request $request, $id)
+    {
+        $author = $this->author->findOrFail($id);
+        $author->name = $request->name;
+
+        $author->save();
+
+        return redirect()->route('author.create');
+    }
+
+    public function destroy($id)
+    {
+        $this->author->destroy($id);
+        return redirect()->back();
+    }
 }
